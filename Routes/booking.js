@@ -3,11 +3,13 @@ import { createBooking, getBooking, getAllBooking } from "../Controller/bookingC
 import { verifyAdmin, verifyUser } from "../utils/verifyToken.js";
 
 
+
+const router = express.Router();
+
 // testing api 
 router.get('/test', (req, res) => {
     res.send("booking  testing route is working")
 })
-const router = express.Router();
 //create review
 router.post("/",verifyUser, createBooking);
 router.get("/:id",verifyUser, getBooking);
