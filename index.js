@@ -23,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 
                         
 const DB = process.env.MONGO_URI ;
+DB="mongodb+srv://hs1957490:Nishu%402001@cluster0.qhlqz6y.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 mongoose.set('strictQuery', false);
 // mongoose.connect(DB).then(() => {
 //     console.log("Database connected successfully");
@@ -43,6 +44,7 @@ const connet=async()=>{
 
 
 const port = process.env.PORT || 8000;
+port=8000;
 app.get("/", (req, res) => {
     res.send(" home apis are working of tour management system");
 });

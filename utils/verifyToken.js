@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
+const JWT_SECRET_key="48b9f6c1a8d6b7b7115b650648271dee315ca3000f75e657572eb04e5ae836b388be83b7122ada41a63da65f0d76ef67c64c52728cd44935d72c9889a9a1832f";
 // export const verifyToken = (req, res, next) => {
 //     // const token = req.body.token || req.query.token || req.headers["x-access-token"];
 //     const token = req.cookies.accessToken;
@@ -38,7 +39,7 @@ export const verifyToken = (req, res, next) => {
     }
 
     try {
-        jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+        jwt.verify(token, JWT_SECRET_key, (err, user) => {
             if (err) {
                 return res.status(401).json({
                     success: false,
