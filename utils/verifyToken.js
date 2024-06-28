@@ -29,7 +29,12 @@ const JWT_SECRET_key="48b9f6c1a8d6b7b7115b650648271dee315ca3000f75e657572eb04e5a
 //     return next();
 // }
 export const verifyToken = (req, res, next) => {
-    const token = req.cookies.accessToken;
+    let  token = req.cookies.accessToken || req.headers.authorization;
+
+    if (req?.headers?.authorization) {
+        token = token.split(" ")[1]; // actual token value
+    }
+    
 
     if (!token) {
         return res.status(401).json({
